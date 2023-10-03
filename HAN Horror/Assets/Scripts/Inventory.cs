@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<ItemInstance> items = new();
+    public List<Key> keys = new();
 
-    public void AddItem(ItemInstance itemToAdd)
+    public void AddItem(Key itemToAdd)
     {
-        items.Add(itemToAdd);
+        keys.Add(itemToAdd);
     }
-    public void RemoveItem(ItemInstance itemToRemove)
+    public void RemoveItem(Key itemToRemove)
     {
-        items.Remove(itemToRemove);
+        keys.Remove(itemToRemove);
     }
+    public List<Key> GetKeys() { return keys; }
 }
