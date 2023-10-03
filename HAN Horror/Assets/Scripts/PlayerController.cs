@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
+    Stamina stamina;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        stamina = GetComponent<Stamina>();
     }
 
     void Update()
@@ -88,6 +91,17 @@ public class PlayerController : MonoBehaviour
         {
             sprintSound.enabled = false;
             footstepsSound.enabled = false;
+        }
+
+        if(stamina.getCurrentStamina() <= 0)
+        {
+            walkingSpeed = 4f;
+            runningSpeed = walkingSpeed;
+        }
+        else
+        {
+            runningSpeed = 11.5f;
+            walkingSpeed = 7.5f;
         }
     }
 

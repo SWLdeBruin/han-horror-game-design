@@ -11,19 +11,15 @@ public class Stamina : MonoBehaviour
     [Range(0, 100)]
     [SerializeField] private float currentStamina = 100f;
 
+    [SerializeField] private float staminaDecreaseRate = 20f;
+
     // Update is called once per frame
     void Update()
     {
         // Decreasing stamina when running
         if (Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
         {
-            DecreaseStamina(20 * Time.deltaTime);
-        }
-
-        if (Input.GetKey(KeyCode.Backspace))
-        {
-            Debug.Log("Regenerating stamina");
-            RegenStamina();
+            DecreaseStamina(staminaDecreaseRate * Time.deltaTime);
         }
     }
 
@@ -32,21 +28,15 @@ public class Stamina : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Food"))
         {
-            Debug.Log("Picked up food");
             RegenStamina();
             Destroy(other.gameObject);
         }
     }
 
-
-    public float MaxStamina { get => maxStamina; set => maxStamina = value; }
-    public float CurrentStamina { get => currentStamina; set => currentStamina = Mathf.Clamp(value, 0, maxStamina); }
-
     public void RegenStamina()
     {
         if (currentStamina < maxStamina)
         {
-           
             currentStamina += 20;
         }
     }
@@ -57,4 +47,8 @@ public class Stamina : MonoBehaviour
             currentStamina -= staminaAmount;
     }
 
+    public float getCurrentStamina()
+    {
+        return currentStamina;
+    }
 }
