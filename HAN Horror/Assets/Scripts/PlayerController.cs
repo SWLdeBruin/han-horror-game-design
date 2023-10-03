@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("DeathScreen");
         }
     }
 
