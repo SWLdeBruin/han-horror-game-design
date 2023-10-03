@@ -10,6 +10,8 @@ public class ActiveZombieMovement : MonoBehaviour
 
     private GameObject player;
     private float aggroDistance = 10;
+
+    private Animator animator;
     
     enum States
     {
@@ -20,13 +22,14 @@ public class ActiveZombieMovement : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();   
         player = GameObject.Find("Player");
         
         currentState = States.Patrol;
         
         agent = GetComponent<NavMeshAgent>();
         agent.destination = endLocation.position;
-
+        animator.SetBool("Run", true);
     }
 
     private void Update()

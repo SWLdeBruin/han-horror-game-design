@@ -10,7 +10,8 @@ public class IdleZombieMovement : MonoBehaviour
     private GameObject player;
     private float aggroDistance = 3;
 
-    
+    private Animator animator;
+
     enum States
     {
         Idle,
@@ -26,6 +27,7 @@ public class IdleZombieMovement : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         agent.destination = transform.position;
+        animator = GetComponent<Animator>();
 
     }
 
@@ -42,6 +44,7 @@ public class IdleZombieMovement : MonoBehaviour
                 break;
 
             case States.Aggro:
+                animator.SetBool("Run", true);
                 agent.destination = player.transform.position;
                 
                 // Transition to Patrol
