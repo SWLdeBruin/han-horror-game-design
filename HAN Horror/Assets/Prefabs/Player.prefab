@@ -784,6 +784,7 @@ GameObject:
   - component: {fileID: 3337287799989758229}
   - component: {fileID: 3714757762516588836}
   - component: {fileID: 8141597622822692397}
+  - component: {fileID: 3051444538028597053}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -858,6 +859,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3051444538028597053
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217031355054659884}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8444877234167429610
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +893,9 @@ GameObject:
   - component: {fileID: 2649220265494758178}
   - component: {fileID: 8978719437593718225}
   - component: {fileID: 7785907217256831532}
+  - component: {fileID: 2633853037172694408}
   - component: {fileID: 8647066745024799255}
+  - component: {fileID: 418465893757004057}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -944,6 +970,21 @@ MonoBehaviour:
   light: {fileID: 8915701435932122634}
   moveDirection: {x: 0, y: 0, z: 0}
   canMove: 1
+--- !u!114 &2633853037172694408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444877234167429610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d60e3900406184bab7f3a0e4b6bac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 100
+  currentStamina: 100
+  staminaDecreaseRate: 20
 --- !u!81 &8647066745024799255
 AudioListener:
   m_ObjectHideFlags: 0
@@ -952,3 +993,34 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8444877234167429610}
   m_Enabled: 1
+--- !u!114 &418465893757004057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444877234167429610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 8c641d30dfd304e4bb69a1f3354fc9b2,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
