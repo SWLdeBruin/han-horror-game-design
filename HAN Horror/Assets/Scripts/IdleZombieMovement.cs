@@ -1,18 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class IdleZombieMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private NavMeshAgent agent;
+    public Transform goal;
+    
+    private GameObject player;
+    private float aggroDistance = 3;
+
+    
+    enum States
     {
+        Idle,
+        Aggro
+    }
+    private States currentState;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
         
+        currentState = States.Idle;
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.destination = transform.position;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // Physics.OverlapSphere();
+        switch (currentState)
+        {
+            case States.Idle:
+                // Transition to Aggro
+                if ((transform.position - player.transform.position).magnitude <= aggroDistance)
+                {
+                    currentState = States.Aggro;
+                }
+                break;
+
+            case States.Aggro:
+                agent.destination = player.transform.position;
+                
+                // Transition to Patrol
+                if ((transform.position - player.transform.position).magnitude > aggroDistance)
+                {
+                    currentState = States.Idle;
+                }
+                break;
+        }
     }
 }
