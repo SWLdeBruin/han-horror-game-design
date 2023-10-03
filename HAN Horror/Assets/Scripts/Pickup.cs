@@ -24,11 +24,8 @@ public class Pickup : MonoBehaviour
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
             {
                 Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.red);
+
                 Debug.Log(hit.collider.gameObject.name);
-                if (hit.collider.gameObject.name == "Key_01")
-                {
-                    Debug.Log("hit");
-                }
             }
         }
     }
