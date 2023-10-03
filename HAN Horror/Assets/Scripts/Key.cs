@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Key : ScriptableObject
 {
-    public string name;
+    public new string name;
 
     public Key(string name)
     {
