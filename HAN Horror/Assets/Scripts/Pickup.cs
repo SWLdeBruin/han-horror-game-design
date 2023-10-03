@@ -29,7 +29,6 @@ public class Pickup : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.Contains("Key"))
