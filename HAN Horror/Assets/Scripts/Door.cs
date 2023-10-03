@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("OPEN 1");
-            Inventory inventory = collision.gameObject.GetComponent<Inventory>();
+            Inventory inventory = other.gameObject.GetComponent<Inventory>();
 
             if (inventory.HasKey())
-            {
-                Debug.Log("OPEN");
+            { 
                 Quaternion targetRotation = Quaternion.Euler(0, 90, 0);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 100f);
+
+                Destroy(gameObject);
             }
         }
     }
