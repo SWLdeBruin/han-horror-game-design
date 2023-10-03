@@ -40,7 +40,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2793793722131681069}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -941,6 +941,7 @@ MonoBehaviour:
   lookXLimit: 45
   sprintSound: {fileID: 323860260817655481}
   footstepsSound: {fileID: 5682952470862719438}
+  light: {fileID: 8915701435932122634}
   moveDirection: {x: 0, y: 0, z: 0}
   canMove: 1
 --- !u!81 &8647066745024799255
